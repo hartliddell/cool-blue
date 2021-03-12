@@ -1,5 +1,13 @@
 {
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "main": "app.js",
+  "name": "cool-blue",
+  "scripts": {
+    "lint": "eslint --ext .js ."
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0"
   }
 }
