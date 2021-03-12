@@ -50,6 +50,11 @@ app.use(function onError(err, req, res, next) {
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
+app.get('/error', (req, res) => {
+  throw new Error('oh no. an error!');
+  res.send('Hello World!')
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
