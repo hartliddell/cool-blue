@@ -6,7 +6,8 @@
   "main": "app.js",
   "name": "cool-blue",
   "scripts": {
-    "lint": "eslint --ext .js ."
+    "lint": "eslint --ext .js .",
+    "start": "node app"
   },
   "devDependencies": {
     "eslint": "^7.21.0"
