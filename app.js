@@ -1,12 +1,6 @@
 import express from 'express';
-
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";
-
-// or using CommonJS
-// const express = require('express');
-// const Sentry = require('@sentry/node');
-// const Tracing = require("@sentry/tracing");
 
 const app = express();
 
@@ -31,9 +25,10 @@ app.use(Sentry.Handlers.requestHandler());
 // TracingHandler creates a trace for every incoming request
 app.use(Sentry.Handlers.tracingHandler());
 
-// All controllers should live here
-app.get("/", function rootHandler(req, res) {
-  res.end("Hello world!");
+app.get('/', (req, res) => res.send('Hello World!'));
+
+app.get('/error', () => {
+  throw new Error('oh no. an error!');
 });
 
 // The error handler must be before any other error middleware and after all controllers
@@ -45,13 +40,6 @@ app.use(function onError(err, req, res) {
   // and optionally displayed to the user for support.
   res.statusCode = 500;
   res.end(res.sentry + "\n");
-});
-
-
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.get('/error', () => {
-  throw new Error('oh no. an error!');
 });
 
 const port = process.env.PORT || 3000;
