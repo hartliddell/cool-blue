@@ -11,18 +11,18 @@ on:
 
 jobs:
   install:
-  
+
     timeout-minutes: 5
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
-      
-    - name: Setup Node.js 14
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-        
-    - name: Run ESLint
-      run: yarn lint
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Run ESLint
+        run: yarn lint
