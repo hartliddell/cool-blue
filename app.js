@@ -40,7 +40,7 @@ app.get("/", function rootHandler(req, res) {
 app.use(Sentry.Handlers.errorHandler());
 
 // Optional fallthrough error handler
-app.use(function onError(err, req, res, next) {
+app.use(function onError(err, req, res) {
   // The error id is attached to `res.sentry` to be returned
   // and optionally displayed to the user for support.
   res.statusCode = 500;
@@ -50,9 +50,8 @@ app.use(function onError(err, req, res, next) {
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.get('/error', (req, res) => {
+app.get('/error', () => {
   throw new Error('oh no. an error!');
-  res.send('Hello World!')
 });
 
 const port = process.env.PORT || 3000;
