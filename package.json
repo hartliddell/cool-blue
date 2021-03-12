@@ -1,10 +1,4 @@
 {
-  "devDependencies": {
-    "eslint": "^7.21.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
-  },
   "engines": {
     "node": "14.x",
     "yarn": "1.x"
@@ -13,5 +7,11 @@
   "name": "cool-blue",
   "scripts": {
     "lint": "eslint --ext .js ."
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
