@@ -3,8 +3,10 @@
     "node": "14.x",
     "yarn": "1.x"
   },
+  "license": "SEE LICENSE FILE",
   "main": "app.js",
   "name": "cool-blue",
+  "type": "module",
   "scripts": {
     "lint": "eslint --ext .js .",
     "start": "node app"
@@ -13,6 +15,8 @@
     "eslint": "^7.21.0"
   },
   "dependencies": {
+    "@sentry/node": "^6.2.2",
+    "@sentry/tracing": "^6.2.2",
     "express": "^4.17.1"
   }
 }
