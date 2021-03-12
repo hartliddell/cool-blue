@@ -24,5 +24,8 @@ jobs:
         with:
           node-version: 14
 
+      - name: Install dependencies
+        run: yarn install --prefer-offline --frozen-lockfile
+
       - name: Run ESLint
         run: yarn lint
