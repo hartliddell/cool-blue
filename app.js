@@ -1,7 +1,7 @@
 import express from 'express';
 
-import * as Sentry from "@sentry/node";
-import * as Tracing from "@sentry/tracing";
+import Sentry from "@sentry/node";
+import Tracing from "@sentry/tracing";
 
 // or using CommonJS
 // const express = require('express');
