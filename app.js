@@ -31,9 +31,10 @@ app.use(Sentry.Handlers.requestHandler());
 // TracingHandler creates a trace for every incoming request
 app.use(Sentry.Handlers.tracingHandler());
 
-// All controllers should live here
-app.get("/", function rootHandler(req, res) {
-  res.end("Hello world!");
+app.get('/', (req, res) => res.send('Hello World!'));
+
+app.get('/error', () => {
+  throw new Error('oh no. an error!');
 });
 
 // The error handler must be before any other error middleware and after all controllers
@@ -47,12 +48,6 @@ app.use(function onError(err, req, res) {
   res.end(res.sentry + "\n");
 });
 
-
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.get('/error', () => {
-  throw new Error('oh no. an error!');
-});
 
 const port = process.env.PORT || 3000;
 
